@@ -51,7 +51,17 @@
 <!---->
 		<div class="container">
 			<div class="specials">
-			
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
 					<div class="clearfix"> </div>
 				</div>
 			</div>
@@ -65,4 +75,36 @@
 	</div>
 <!-- footer -->
 </body>
+<script>
+
+
+	let cartPopulate = () => {
+
+		Price = localStorage.getItem("Price");
+		Bread = localStorage.getItem("Bread");
+
+		realPrice = JSON.parse(Price);
+		realBread = JSON.parse(Bread);
+
+		let tbody = document.getElementsByTagName("tbody")[0];
+		// let tr = document.createElement("tr");
+		// let tdName = document.createElement("td");
+		// let tdPrice = document.createElement("td");
+
+		for(let idx = 0 ; idx<realPrice.length;idx++){
+			let tr = document.createElement("tr");
+			let tdName = document.createElement("td");
+			let tdPrice = document.createElement("td");
+			tdPrice.innerText = realPrice[idx];
+			tdName.innerText = realBread[idx];
+			tr.append(tdName, tdPrice);
+			tbody.append(tr);
+			
+		}
+		
+
+	}
+	cartPopulate();
+
+</script>
 </html>
