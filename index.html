@@ -287,7 +287,7 @@
     let breadList = document.getElementsByName("bread");
     let breadPic = document.getElementsByName("bread")[0];
     let totalPrice = 0;
-    
+    // For session Storage.
     var cartBread = [];
     var cartPrice = [];
     var cartAmount = [];
@@ -296,7 +296,7 @@
         let cartBtn = document.createElement("button");
         cartBtn.type="button"; cartBtn.innerText="AddToCart"; cartBtn.id = "myBtn";
         obj.append(cartBtn);
-
+        //Show The information of Item 
         cartBtn.addEventListener('click',(value)=>{
             let breadName = obj.children[1].innerHTML;
             let breadPrice = obj.children[2].innerHTML;
@@ -320,7 +320,8 @@
         let breadPrice = value.children[2].innerHTML;
         let overallPrice = value.children[3].innerHTML;
         buyInfo.innerText = breadName + " " +  breadPrice;
-
+        
+        // + / - button for calculating Item Amount.
         let plus = document.createElement("input");
         let minus = document.createElement("input");
         let quantity = document.createElement("div");
@@ -331,7 +332,7 @@
         quantity.id='result'; quantity=0;
         
         addCart.type="button"; addCart.value = "AddCart";
-
+        // Button for Plus
         plus.addEventListener('click', function(){
             let breadName = value.children[1].innerHTML;
             let breadPrice = (value.children[2].innerHTML).slice(1);
@@ -343,7 +344,7 @@
             buyInfo.innerText = breadName + " $ " +  totalPrice;
             divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
         })
-
+        // Button for Minus
         minus.addEventListener('click', function(){
             if (userQuantity <1){
                 userQuantity = 0;
@@ -360,7 +361,7 @@
             divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
         })
 
-
+        // User want store in the cart.
         addCart.addEventListener('click', function () {
             if(userQuantity == 0){
                 alert("Please select more than 1");
@@ -390,8 +391,6 @@
         spanContent.addEventListener('click', function(){
             divModal.style.display = "none";
         })
-
-        
 
         breadPic.append(divModal);
 

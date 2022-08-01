@@ -80,15 +80,17 @@
 	let cartDiv = document.getElementsByClassName("specials")[0];
 	let cartContainer = document.getElementsByClassName("container")[0];
 	let cartPopulate = () => {
+		// Call the Session stoage.
 		Price = sessionStorage.getItem("Price");
 		Bread = sessionStorage.getItem("Bread");
 		Amount = sessionStorage.getItem("Amount")
 
+		//If there is no Item in the cart.
 		if(Price === null){
 			let h1= document.createElement("h1");
 			h1.innerText = "There is no item in your cart!!"
 			cartDiv.appendChild(h1);
-
+		// Else there is some item in the cart.
 		}else{
 			realPrice = JSON.parse(Price);
 			realAmount = JSON.parse(Amount)
@@ -98,20 +100,14 @@
 			let table = document.getElementsByTagName("table")[0];
 			let tPrice = 0;
 			let clearBtn = document.createElement("input");
+
+			//Show the Item list that user stored.
 			for(let idx = 0 ; idx<realPrice.length;idx++){
 				let tr = document.createElement("tr");
 				let tdName = document.createElement("td");
 				let tdPrice = document.createElement("td");
 				let tdAmount = document.createElement("td");
-				// let delBtn = document.createElement("input");
-				// delBtn.type="button"; delBtn.value=" X ";
-				// delBtn.addEventListener('click', function(event){
-
-				// 	console.log(event.path[1].children[0].innerText);
-				// 	console.log(Bread)
-				// 	sessionStorage.removeItem("Bread");
-				// })
-
+				// Button for clear session Storage.
 				clearBtn.type="button"; clearBtn.value="Clear Cart";
 				clearBtn.addEventListener('click', function(event){
 					sessionStorage.clear();
