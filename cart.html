@@ -51,7 +51,18 @@
 <!---->
 		<div class="container">
 			<div class="specials">
-			
+				<table>
+					<thead>
+						<tr>
+							<th>BreadName</th>
+							<th>Amount</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
 					<div class="clearfix"> </div>
 				</div>
 			</div>
@@ -65,4 +76,62 @@
 	</div>
 <!-- footer -->
 </body>
+<script>
+	let cartDiv = document.getElementsByClassName("specials")[0];
+	let cartContainer = document.getElementsByClassName("container")[0];
+	let cartPopulate = () => {
+		// Call the Session stoage.
+		Price = sessionStorage.getItem("Price");
+		Bread = sessionStorage.getItem("Bread");
+		Amount = sessionStorage.getItem("Amount")
+
+		//If there is no Item in the cart.
+		if(Price === null){
+			let h1= document.createElement("h1");
+			h1.innerText = "There is no item in your cart!!"
+			cartDiv.appendChild(h1);
+		// Else there is some item in the cart.
+		}else{
+			realPrice = JSON.parse(Price);
+			realAmount = JSON.parse(Amount)
+			realBread = JSON.parse(Bread);
+
+			let tbody = document.getElementsByTagName("tbody")[0];
+			let table = document.getElementsByTagName("table")[0];
+			let tPrice = 0;
+			let clearBtn = document.createElement("input");
+
+			//Show the Item list that user stored.
+			for(let idx = 0 ; idx<realPrice.length;idx++){
+				let tr = document.createElement("tr");
+				let tdName = document.createElement("td");
+				let tdPrice = document.createElement("td");
+				let tdAmount = document.createElement("td");
+				// Button for clear session Storage.
+				clearBtn.type="button"; clearBtn.value="Clear Cart";
+				clearBtn.addEventListener('click', function(event){
+					sessionStorage.clear();
+					location.reload();
+				})
+
+				tPrice += realPrice[idx];
+				tPrice = Math.round(tPrice * 10) / 10;
+
+				tdPrice.innerText = "$" + realPrice[idx];
+				tdAmount.innerText = realAmount[idx];
+				tdName.innerText = realBread[idx];
+				tr.append(tdName, tdAmount, tdPrice);
+				tbody.append(tr);
+		
+			}
+			table.append("Total Price : $ " + tPrice);
+			cartDiv.append(clearBtn);
+		}
+
+	}
+	cartPopulate();
+
+	
+
+</script>
 </html>
