@@ -54,7 +54,8 @@
 				<table>
 					<thead>
 						<tr>
-							<th>Name</th>
+							<th>BreadName</th>
+							<th>Amount</th>
 							<th>Price</th>
 						</tr>
 					</thead>
@@ -77,29 +78,44 @@
 </body>
 <script>
 
-
 	let cartPopulate = () => {
-
 		Price = localStorage.getItem("Price");
 		Bread = localStorage.getItem("Bread");
+		Amount = localStorage.getItem("Amount")
 
-		realPrice = JSON.parse(Price);
-		realBread = JSON.parse(Bread);
+		if(Price === null){
+			console.log("hey");
+			let h1= document.createElement("h1");
+			h1.innerText = "There is no item in your cart!!"
+			let tbody = document.getElementsByTagName("tbody")[0];
+			tbody.appendChild(h1);
 
-		let tbody = document.getElementsByTagName("tbody")[0];
-		// let tr = document.createElement("tr");
-		// let tdName = document.createElement("td");
-		// let tdPrice = document.createElement("td");
+		}else{
+			realPrice = JSON.parse(Price);
+			realAmount = JSON.parse(Amount)
+			realBread = JSON.parse(Bread);
 
-		for(let idx = 0 ; idx<realPrice.length;idx++){
-			let tr = document.createElement("tr");
-			let tdName = document.createElement("td");
-			let tdPrice = document.createElement("td");
-			tdPrice.innerText = realPrice[idx];
-			tdName.innerText = realBread[idx];
-			tr.append(tdName, tdPrice);
-			tbody.append(tr);
-			
+			let tbody = document.getElementsByTagName("tbody")[0];
+			let table = document.getElementsByTagName("table")[0];
+			let tPrice = 0;
+			for(let idx = 0 ; idx<realPrice.length;idx++){
+
+				let tr = document.createElement("tr");
+				let tdName = document.createElement("td");
+				let tdPrice = document.createElement("td");
+				let tdAmount = document.createElement("td");
+
+				tPrice += realPrice[idx];
+
+				tdPrice.innerText = "$" + realPrice[idx];
+				tdAmount.innerText = realAmount[idx];
+				tdName.innerText = realBread[idx];
+				tr.append(tdName, tdAmount, tdPrice);
+				tbody.append(tr);
+		
+			}
+			table.append("Total Price : $ " + tPrice);
+
 		}
 		
 
