@@ -77,18 +77,17 @@
 <!-- footer -->
 </body>
 <script>
-
+	let cartDiv = document.getElementsByClassName("specials")[0];
+	let cartContainer = document.getElementsByClassName("container")[0];
 	let cartPopulate = () => {
-		Price = localStorage.getItem("Price");
-		Bread = localStorage.getItem("Bread");
-		Amount = localStorage.getItem("Amount")
+		Price = sessionStorage.getItem("Price");
+		Bread = sessionStorage.getItem("Bread");
+		Amount = sessionStorage.getItem("Amount")
 
 		if(Price === null){
-			console.log("hey");
 			let h1= document.createElement("h1");
 			h1.innerText = "There is no item in your cart!!"
-			let tbody = document.getElementsByTagName("tbody")[0];
-			tbody.appendChild(h1);
+			cartDiv.appendChild(h1);
 
 		}else{
 			realPrice = JSON.parse(Price);
@@ -98,14 +97,29 @@
 			let tbody = document.getElementsByTagName("tbody")[0];
 			let table = document.getElementsByTagName("table")[0];
 			let tPrice = 0;
+			let clearBtn = document.createElement("input");
 			for(let idx = 0 ; idx<realPrice.length;idx++){
-
 				let tr = document.createElement("tr");
 				let tdName = document.createElement("td");
 				let tdPrice = document.createElement("td");
 				let tdAmount = document.createElement("td");
+				// let delBtn = document.createElement("input");
+				// delBtn.type="button"; delBtn.value=" X ";
+				// delBtn.addEventListener('click', function(event){
+
+				// 	console.log(event.path[1].children[0].innerText);
+				// 	console.log(Bread)
+				// 	sessionStorage.removeItem("Bread");
+				// })
+
+				clearBtn.type="button"; clearBtn.value="Clear Cart";
+				clearBtn.addEventListener('click', function(event){
+					sessionStorage.clear();
+					location.reload();
+				})
 
 				tPrice += realPrice[idx];
+				tPrice = Math.round(tPrice * 10) / 10;
 
 				tdPrice.innerText = "$" + realPrice[idx];
 				tdAmount.innerText = realAmount[idx];
@@ -115,12 +129,13 @@
 		
 			}
 			table.append("Total Price : $ " + tPrice);
-
+			cartDiv.append(clearBtn);
 		}
-		
 
 	}
 	cartPopulate();
+
+	
 
 </script>
 </html>

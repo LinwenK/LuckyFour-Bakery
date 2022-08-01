@@ -298,9 +298,9 @@
         obj.append(cartBtn);
 
         cartBtn.addEventListener('click',(value)=>{
-            
             let breadName = obj.children[1].innerHTML;
             let breadPrice = obj.children[2].innerHTML;
+            totalPrice = parseFloat(breadPrice.slice(1));
 
             modalPopulate(obj);
         })
@@ -341,7 +341,7 @@
             totalPrice = breadPrice;
 
             buyInfo.innerText = breadName + " $ " +  totalPrice;
-            divContent.replaceChildren(buyInfo, minus, userQuantity, plus, addCart);
+            divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
         })
 
         minus.addEventListener('click', function(){
@@ -357,13 +357,11 @@
             totalPrice = breadPrice;
             buyInfo.innerText = breadName + " $ " +  totalPrice;
             
-            divContent.replaceChildren(buyInfo, minus, userQuantity, plus, addCart);
+            divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
         })
 
 
         addCart.addEventListener('click', function () {
-  
-
             if(userQuantity == 0){
                 alert("Please select more than 1");
             }else{
@@ -371,9 +369,9 @@
                 cartPrice.push(totalPrice);
                 cartAmount.push(userQuantity);
 
-                localStorage.setItem("Bread", JSON.stringify(cartBread));
-                localStorage.setItem("Price", JSON.stringify(cartPrice));
-                localStorage.setItem("Amount", JSON.stringify(cartAmount));
+                sessionStorage.setItem("Bread", JSON.stringify(cartBread));
+                sessionStorage.setItem("Price", JSON.stringify(cartPrice));
+                sessionStorage.setItem("Amount", JSON.stringify(cartAmount));
 
                 divModal.style.display = "none";
             }
