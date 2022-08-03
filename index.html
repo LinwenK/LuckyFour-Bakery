@@ -301,6 +301,7 @@
             let breadName = obj.children[1].innerHTML;
             let breadPrice = obj.children[2].innerHTML;
             totalPrice = parseFloat(breadPrice.slice(1));
+            breadPrice = parseFloat(breadPrice.slice(1));
 
             modalPopulate(obj);
         })
@@ -354,7 +355,7 @@
             }
             let breadName = value.children[1].innerHTML;
             let breadPrice = (value.children[2].innerHTML).slice(1);
-            breadPrice = breadPrice * userQuantity;
+            breadPrice = breadPrice;
             totalPrice = breadPrice;
             buyInfo.innerText = breadName + " $ " +  totalPrice;
             
@@ -366,8 +367,9 @@
             if(userQuantity == 0){
                 alert("Please select more than 1");
             }else{
+                breadPrice = parseFloat(breadPrice.slice(1)); 
                 cartBread.push(breadName);
-                cartPrice.push(totalPrice);
+                cartPrice.push(breadPrice);
                 cartAmount.push(userQuantity);
 
                 sessionStorage.setItem("Bread", JSON.stringify(cartBread));
@@ -377,7 +379,6 @@
                 divModal.style.display = "none";
             }
         })
-
 
         let spanContent = document.createElement("span");
         spanContent.classList.add("close");
