@@ -72,22 +72,24 @@
     let tPrice = 0;
     let TotalPrice = document.getElementsByTagName("h2")[0];
     let breadList = document.getElementsByTagName("h4")[0];
+
     Price = sessionStorage.getItem("Price");
     Bread = sessionStorage.getItem("Bread");
-
+    Amount = sessionStorage.getItem("Amount");
+    
     realPrice = JSON.parse(Price);
+    realAmount = JSON.parse(Amount);
     realBread = JSON.parse(Bread);
 
     for(let idx = 0 ; idx<realPrice.length;idx++){
         let tdName = document.createElement("td");
         let tdPrice = document.createElement("td");
 
-        tPrice += realPrice[idx];
-        tPrice = Math.round(tPrice * 10) / 10;
+        tPrice += realAmount[idx] * realPrice[idx];
+		tPrice = Math.round(tPrice * 10) / 10;
         tdName.innerText = realBread[idx];
 
         tdPrice.innerText = "$" + realPrice[idx];
-
         breadList.append( tdName );
     }
     TotalPrice.append("$ "+tPrice);
