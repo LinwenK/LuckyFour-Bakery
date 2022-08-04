@@ -29,7 +29,6 @@
     z-index: 1;
     width: 60%;
     height: 30%;
-	border: 1px solid black;
 }
 
 
@@ -40,28 +39,366 @@
     height: 100%;
 }
 
-/* green #27864F */
+/* drak green #27864F */
+ /* light green #A4C8B5 */
 /* brown #C76F4C
-yellow #F3A851 */
+yellow #F3A851 
+light yellow #FFF3D4*/
 /************************* Menu page *******************************/
 
-#menu{
+#menu, #login{
+    background: url("/img/background.png");
+    background-position:center;
+    background-size: cover;
+    background-repeat:repeat;
+    position: absolute;
+
+
 	display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 
 
-}
 
+    column-gap: 30px;
+    row-gap: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+.breadinfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 20%;
+
+}
 .breadphoto{
 	border-radius: 50%;
-	border: 5px solid darkkhaki;
 }
+.breadname{
+    font-size: 30px;
+    color: #27864F;
+}
+.breadprice{
+    font-size: 25px;
+    color: #C76F4C;
+    font-weight: 700;
+}
+#myBtn{
+    font-size: 20px;
+    border: 0;
+    padding: 3%;
+    border-radius: 50px;
+    background-color: #FFF3D4;
+    color: #C76F4C;
+}
+
+#myBtn:hover{
+    font-size: 20px;
+    border: 0;
+    padding: 3%;
+    border-radius: 50px;
+    background-color: #C76F4C;
+    color: #FFF3D4;
+}
+
+/********************************************************/
+
+.pageheader{
+    background-color: #C76F4C;
+    position: relative;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    column-gap: 30%;
+    border: 1px solid green;
+
+}
+/********************************************************/
+
+#gohome {
+    width: 10%;
+    display: flex;
+}
+
+#gohome .v-header {
+    display: flex;
+    width: 100%;
+    object-fit: fill;
+    z-index: 1;
+    border-radius: 100%;
+}
+
+/********************************************************/
+/* 
+#gousercart {
+    border: 3px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+} */
+
+
+/********************************************************/
+
+#loginpage {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+}
+
+/********************************************************/
+
+
+
+#cartpage, #loginpage, #gohome {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#cartpage .v-header {
+
+    display: flex;
+    width: 100%;
+    object-fit: fill;
+    z-index: 1;
+    border-radius: 100%;
+}
+/********************************************************/
+
+#cartpage a, #loginpage a, #gohome a{
+    text-decoration: none;
+    color: #FFF3D4;
+}
+
+.pagefooter{
+    background-color: #FFF3D4;
+    height: 20vh; 
+}
+
+/********************************************************/
+#login, #cart, #order{
+    background: url("/img/background.png");
+    background-position:center;
+    background-size: cover;
+    background-repeat:repeat;
+    position: absolute;
+    
+    width: 100%;
+    height: 80%;
+
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+
+#cart, #order{
+    background: url("/img/background.png");
+    background-position:center;
+    background-size: cover;
+    background-repeat:repeat;
+    position: absolute;
+    
+    width: 100%;
+    height: 80%;
+
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+}
+
+#inputuser{
+    display: flex;
+    flex-direction: column;
+}
+
+#inputuser input{
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+#checkuser{
+    display: flex;
+    font-size: 20px;
+    column-gap: 20px;
+}
+
+#checkuser button{
+    font-size: 20px;
+    padding: 2%;
+    width: 100%;
+}
+
+#login h1, #cart h1{
+    color:#27864F;
+}
+
+/********************************************************/
+#shoppingpag{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#carttable{
+    text-align: center;
+    width: 100%;
+    line-height: 2;
+    padding: 5%;
+    font-size: 30px;
+    color: #C76F4C;
+}
+#tPrice{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 40px;
+    color: #C76F4C;
+}
+
+.specials{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    column-gap: 30px;
+}
+
+
+#buttonclear,#buttonmain{
+    height: 5vh;
+
+    text-align: center;
+    font-size: 20px;
+    color: #C76F4C;
+
+}
+
+#buttonorder{
+    height: 5vh;
+
+    text-align: center;
+    font-size: 25px;
+    color: #C76F4C;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+#carttable input, #carttable button{
+    font-size: 20px;
+}
+
+#carttable .clearfix{
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+}
+
+td{
+    width: 80px;
+    color: #C76F4C;
+    text-align: center;
+    font-size: 30px;
+}
+
+th{
+    width: 80px;
+    color: #FFF3D4;
+    background-color: #C76F4C;
+    text-align: center;
+    font-size: 30px;
+}
+
+/********************************************************/
+#order span{
+    color: #C76F4C;
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 5px solid #C76F4C;
+    font-weight: 800;
+
+}
+
+#order .specials, #order .container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#order h1{
+    width: 100%;
+    color: #C76F4C;
+    font-size: 50px;
+    padding: 2%;
+    font-weight: 800;
+}
+
+#order h4{
+    width: 100%;
+    color: #27864F;
+    font-size: 30px;
+    padding: 2%;
+    font-weight: 600;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#order h2, #tPrice{
+    width: 100%;
+    color: #27864F;
+    font-size: 30px;
+    padding: 2%;
+    font-weight: 600;
+    
+}
+
+#tPrice{
+    color: #C76F4C;
+}
+
+/* drak green #27864F */
+ /* light green #A4C8B5 */
+/* brown #C76F4C
+yellow #F3A851 
+light yellow #FFF3D4*/
 
 
 
 /************************* Lin's part *******************************/
+
 h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}

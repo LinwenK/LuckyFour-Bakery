@@ -20,23 +20,42 @@
 </head>
 
 <body>
-    <div id="order">
-    <header>
-        <nav>
-        <!-- <a href="#/!home">Home</a> -->
-            <a href="./index.html">Home</a>
-            <a href="./login.html">Log in</a>
+    <header class="pageheader">
+        <div class="level-video" onclick="showmenu();" id="gohome" class="gomenu">
+            <video autoplay loop muted class="v-header">
+              <source src="./img/Logo.mp4" type="video/mp4">
+            </video>
+            <a href="./index.html" >
+                Home
+            </a>  
+        </div>
 
-            <a href="./cart.html">Shopping Cart</a>
-            <a href="./order.html">order</a>
-        </nav>
+            <div id = "loginpage">
+            <img id = "loginpageicon" src="./img/user.png" width="100%" height="100%">
+            <a href="./login.html" >
+                Log in
+            </a>    
+            </div>
+
+            <div id = "cartpage">
+            <video id = "cartpageicon" autoplay loop muted class="v-header">
+                <source src="./img/addcart.mp4" type="video/mp4">
+            </video>
+            <a href="./cart.html">
+                Shopping Cart
+            </a>
+            </div>
+
     </header> 
+    <div id="order">
+        <span> This is your lucky order </span>
 
     <div class="container">
         <div class="specials">
+            <h4>In Your Order</h4>
+            <h2>Total Price is </h2> 
             <h1>Thank You so much</h1>
-            <h4>You've ordered</h4>
-            <h2>Total Price is  </h2> 
+
             </div>
         </div>
     </div>
@@ -70,6 +89,10 @@
         tdPrice.innerText = "$" + realPrice[idx];
         breadList.append( tdName );
     }
-    TotalPrice.append("$ "+tPrice);
+    let totalprice = document.createElement("div");
+			totalprice.id="tPrice";
+			totalprice.innerHTML = "$ " + tPrice;
+            
+    TotalPrice.append(totalprice);
 
 </script>
