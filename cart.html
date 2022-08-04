@@ -1,58 +1,40 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title></title>
-<link href="css/origin.css" rel="stylesheet" type="text/css" media="all">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<script src="js/jquery.min.js"></script>
-<script src="./angular.js"></script>
-<script src="./ng-route.js"></script>
-<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linwen's LuckyFour Bakery Website">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script src="./angular.js"></script>
+    <script src="./ng-route.js"></script>
+    
+
+    <title>LuckyFour Bakery</title>
+
+
 
 </head>
+
 <body>
-<!-- header -->
- <div class="banner1">
-		<div class="header">
-		<div class="container">
-			<div class="logo">
-				<a href="index.html"></a>
-			</div>
-				<div class="hader-left">
-				<h1><a href="index.html">Bakery</a></h1>
-				</div>
-				<div class="head-nav">
-					<span class="menu"> </span>
-					<ul class="cl-effect-3">
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="login.html">Login</a></li>
-						<li><a href="cart.html">Cart</a></li>
-						<div class="clearfix"> </div>
-					</ul>
-				</div>
-			<div class="clearfix"> </div>
-						<!-- script-for-nav -->
-					<script>
-						$( "span.menu" ).click(function() {
-						  $( ".head-nav ul" ).slideToggle(300, function() {
-							// Animation complete.
-						  });
-						});
-					</script>
-				<!-- script-for-nav --> 	
-				</div>				
-			</div> 
-			</div>
-<!-- header -->
+	<div id="cart">
+	<header>
+            <nav>
+            <!-- <a href="#/!home">Home</a> -->
+                <a href="./index.html">Home</a>
+				<a href="./login.html">Log in</a>
+
+                <a href="./cart.html">Shopping Cart</a>
+                <a href="./order.html">order</a>
+            </nav>
+        </header> 
 <!---->
 		<div class="container">
 			<div class="specials">
-				<table>
+				<table> 
 					<thead>
 						<tr>
 							<th>BreadName</th>
@@ -68,14 +50,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	<!---->
 
-	<!-- footer -->
-	<div class="footer" id="contact">
-		<div class="container">
-			
-	</div>
-<!-- footer -->
 </body>
 <script>
 	let cartDiv = document.getElementsByClassName("specials")[0];
@@ -100,7 +77,7 @@
 		backBtn.type="button"; backBtn.value="Back to Main";
 
 		backBtn.addEventListener('click', function(event){
-			location.href='/index.html';
+			location.href='./index.html';
 		})
 
 		cartDiv.append(backBtn);
@@ -123,22 +100,22 @@
 			let orderBtn = document.createElement("input");
 			let userQuantity = 1;
 
-			let Pagerouter = angular.module('orderApp', ["ngRoute"]);
-			Pagerouter.config(($routeProvider)=>{
-				$routeProvider
-				.when('/cart',{
-					templateUrl:'cart.html'
-				})
-				.when('/order',{
-					templateUrl:'order.html'
-				})
-			});
+			// let Pagerouter = angular.module('bakeryApp', ["ngRoute"]);
+			// Pagerouter.config(($routeProvider)=>{
+			// 	$routeProvider
+			// 	.when('/cart',{
+			// 		templateUrl:'cart.html'
+			// 	})
+			// 	.when('/order',{
+			// 		templateUrl:'order.html'
+			// 	})
+			// });
 			
 			orderBtn.type="button"; orderBtn.value="Order";
 			orderBtn.addEventListener('click', (event)=>{
 				let isExecuted = confirm("Are you sure to order these breads??");
 				if(isExecuted == true){
-					location.href="/order.html";
+					location.href="./order.html";
 				}	
 			})
 
