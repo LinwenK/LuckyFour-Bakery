@@ -1,0 +1,36 @@
+<!-- MENU Category Page Linwen-->
+
+<h1>Menu page</h1>
+
+<div id="menu" ng-controller="menuCtrl">
+    <!-- <div id="menubg"> -->
+    <!-- <img src="./img/background.png" width="100%" height="100%" class="menubg"> -->
+    <div ng-repeat="breadobj in bakeryfile" name="bread" id="'breadinfo' + {{breadobj.id}}" class="breadinfo">
+        <img src="{{'./img/'+breadobj.ProductName+'.jpeg'}}" style="height:200px; width:200px" id="'breadphoto' + {{breadobj.id}}" class="breadphoto">    
+        <h5 class ="breadname"  id="'breadname' + {{breadobj.id}}">{{breadobj.ProductName}}</h5> 
+        <p class ="breadprice"id="'breadprice' + {{breadobj.id}}">{{breadobj.price | currency}} </p>
+
+
+        <!-- <button type="button" id="myBtn" class="{{breadobj.id}}" ng-click="btnClick()">Add to NewCart</button> -->
+        <button id="myBtn" type="button" ng-click="btnClick()" class="{{breadobj.id}}">Add to Cart</button>
+
+        <div id="myModal" class="modal" ng-show="showmodal" style="display: block">
+            <div class="modal-content">
+                <span class="close" ng-click="closeBtn()"> X </span>
+                <img src="{{'./img/'+getobj.ProductName+'.jpeg'}}" style="height:100px; width:100px">
+                <p>{{getobj.ProductName}} </p>
+                <p>Price {{getobj.price | currency}}</p>
+                <input type="button" value=" - " ng-click="countminus()">
+                <p>{{userQuantity}}</p>
+                <input type="button" value=" + " ng-click="countplus()">
+                <p>Total Price {{getobj.price*userQuantity | currency}}</p>
+
+                <button type="button" ng-click="addCart()">Add to cart</button>
+            </div>            
+     
+        </div>
+    </div>
+    </div>
+       
+
+<!-- </div> -->

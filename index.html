@@ -4,398 +4,373 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linwen's LuckyFour Bakery Website">
+
     <link rel="stylesheet" href="./css/style.css">
 
-    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="./jquery-3.6.0.js"></script>
+    <script src="./angular.js"></script>
+    <script src="./ng-route.js"></script>
     
 
     <title>LuckyFour Bakery</title>
 
 
-<!-- Lin's part -->
-<link href="css/origin.css" rel="stylesheet" type="text/css" media="all">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<script src="js/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
-<!-- Lin's part End-->
-
 
 </head>
 
-<body>
-    <main>
-        <!-- HOME Page test -->
-        <div id="home">
+<body ng-app="bakeryApp">
+    <div id="home">
 
-            <video autoplay loop muted class="v-header">
-                <source src="./img/home_bakery.mp4" type="video/mp4">
-            </video>
+        <video autoplay loop muted class="v-header">
+            <source src="./img/home_bakery.mp4" type="video/mp4">
+        </video>
 
+        <div id="startbtn">        
+            <!-- <a href="#/!">Home</a>
+            <a href="#/!menu">Menu</a> -->
+            <a id="gotomain" href="#" onclick="showmain();"></a>
         </div>
-        <!-- HOME END -->
+
+    </div>
+    <!-- HOME END -->
 
 
+    <div id="mainpage"> 
+        <header>
+            <nav>
+            <!-- <a href="#/!home">Home</a> -->
+                <a href="#!">Menu</a>
+                <a href="./login.html">Log in</a>
+                <a href="./cart.html">Shopping Cart</a>
+            </nav>
+        </header> 
 
-        <!-- MENU Category Page-->
-        <!-- MENU Category Eed -->
+        <main ng-view>
+            <!-- all content pages will be displayed here -->
 
+        </main>
 
-        <!-- User Login Page-->
-        <!-- User Login End-->
-
-        
-        <!-- MENU Item Page-->
-        <!-- MENU Item END -->
-
-
-        <!-- Shopping cart Page -->
-        <!-- Shopping cart End -->
-
-        <!-- After shopping Page -->
-        <!-- After shopping End -->
-
+        <footer>
+            Footer
+        </footer>
+    </div>
+       
     </main>
 
-
-<!-- Lin's part -->
-<!-- header -->
-<div class="banner1">
-    <div class="header">
-    <div class="container">
-        <div class="logo">
-            <a href="index.html"></a>
-        </div>
-            <div class="hader-left">
-            <h1><a href="index.html">Bakery</a></h1>
-            </div>
-            <div class="head-nav">
-                <span class="menu"> </span>
-                    <ul class="cl-effect-3">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <div class="clearfix"> </div>
-                    </ul>
-            </div>
-        <div class="clearfix"> </div>
-                    <!-- script-for-nav -->
-                <script>
-                    $( "span.menu" ).click(function() {
-                      $( ".head-nav ul" ).slideToggle(300, function() {
-                        // Animation complete.
-                      });
-                    });
-                </script>
-            <!-- script-for-nav --> 	
-            </div>				
-        </div> 
-        </div>
-<!-- header -->
-<!---->
-    <div class="container">
-        <div class="specials">
-        <h3>Products</h3>
-            <div class="special-top">
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                        <img src="img/Bagel.jpeg" class="img-responsive" alt="">
-                        <h5>Bagel</h5>
-                        <p>$3</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                        <img src="img/Baguette.jpeg" class="img-responsive" alt="">
-                        <h5>Baguette</h5>
-                        <p>$4</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                        <img src="img/Banana bread.jpeg" class="img-responsive" alt="">
-                        <h5>Banana bread</h5>
-                        <p>$2.5</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                        <img src="img/Barm cake.jpeg" class="img-responsive" alt="">
-                        <h5>Barm cake</h5>
-                        <p>$5</p>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        <div class="special-top">
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                        <img src="img/Belgian waffle.jpeg" class="img-responsive" alt="">
-                        <h5>Belgian waffle</h5>
-                        <p>$6</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                        <img src="img/Biscuit.jpeg" class="img-responsive" alt="">
-                        <h5>Biscuit</h5>
-                        <p>$5</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                        <img src="img/Bread roll.jpeg" class="img-responsive" alt="">			
-                        <h5>Bread roll</h5>
-                        <p>$4</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                        <img src="img/Apple cake.jpeg" class="img-responsive" alt="">
-                        <h5>Apple cake</h5>
-                        <p>$3</p>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-        </div>
-            <div class="special-top">
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/Madeleine.jpeg" class="img-responsive" alt="">
-                    <h5>Madeleine</h5>
-                    <p>$1</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/English muffin.jpeg" class="img-responsive" alt="">
-                    <h5>English muffin</h5>
-                    <p>$3</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/Flatbread.jpg" class="img-responsive" alt="">			
-                    <h5>Flatbread</h5>
-                    <p>$4</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/Hardtack.jpeg" class="img-responsive" alt="">
-                    <h5>Hardtack</h5>
-                    <p>$3</p>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="special-top">
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/Brownie.jpeg" class="img-responsive" alt="">
-                    <h5>Brownie</h5>
-                    <p>$8</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/Cassava cake.jpeg" class="img-responsive" alt="">
-                    <h5>Cassava cake</h5>
-                    <p>$3</p>
-                </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/Bread roll.jpeg" class="img-responsive" alt="">			
-                    <h5>Bread roll</h5>
-                    <p>$4</p>
-                    </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/Cheesecake.jpeg" class="img-responsive" alt="">
-                    <h5>Cheese cake</h5>
-                    <p>$9</p>
-                </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="special-top">
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/Lye roll.jpeg" class="img-responsive" alt="">
-                    <h5>Lye roll</h5>
-                    <p>$7.2</p>
-                </div>
-                </div>
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/Chocolate cake.jpeg" class="img-responsive" alt="">
-                    <h5>Chocolate Cake</h5>
-                    <p>$3.5</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3 special-in">
-                    <div name="bread">
-                    <img src="img/Pretzel.jpeg" class="img-responsive" alt="">
-                    <h5>Pretzel</h5>
-                    <p>$4.3</p>
-                </div>
-                </div>
-                <div class="col-md-3 special-in"> 
-                    <div name="bread">
-                    <img src="img/coconut cake.jpeg" class="img-responsive" alt="">
-                    <h5>Coconut Cake</h5>
-                    <p>$5.2</p>
-                </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            
-        </div>
-    </div>
-<!---->
-
-<!-- footer -->
-<div class="footer" id="contact">
-    <div class="container">
-        
-    </div>
-</div>
-<!-- footer -->
-<!-- footer -->
-<div class="footer-bottom">
-    <div class="container">
-    </div>
-</div>
-<!-- footer -->
-
-<!-- Lin's part End-->
 
 </body>
 
 
 <script>
+
+    //home Linwen: ----------------------------------------------------------
     document.querySelector('video').playbackRate = 0.5;
 
-    let breadList = document.getElementsByName("bread");
-    let breadPic = document.getElementsByName("bread")[0];
-    let totalPrice = 0;
-    // For session Storage.
-    var cartBread = [];
-    var cartPrice = [];
-    var cartAmount = [];
-
-    for (let obj of breadList) {
-        let cartBtn = document.createElement("button");
-        cartBtn.type="button"; cartBtn.innerText="AddToCart"; cartBtn.id = "myBtn";
-        obj.append(cartBtn);
-        //Show The information of Item 
-        cartBtn.addEventListener('click',(value)=>{
-            let breadName = obj.children[1].innerHTML;
-            let breadPrice = obj.children[2].innerHTML;
-            totalPrice = parseFloat(breadPrice.slice(1));
-            breadPrice = parseFloat(breadPrice.slice(1));
-
-            modalPopulate(obj);
-        })
+    $('#mainpage').hide();
+    function showmain(event){
+        $('#home').fadeOut("slow");
+        $('#mainpage').fadeIn("slow");
+        // $('#myModal').modal('show');
     }
 
-    let modalPopulate = (value) =>{
+    
 
-        let divModal = document.createElement("div");
-        divModal.id = "myModal";
-        divModal.classList.add("modal");
+    //home Linwen End: ----------------------------------------------------------
 
-        let divContent = document.createElement("div");
-        divContent.classList.add("modal-content");
-        let buyInfo = document.createElement("p");
+    //Menu Linwen: ----------------------------------------------------------
 
-        let breadName = value.children[1].innerHTML;
-        let breadPrice = value.children[2].innerHTML;
-        let overallPrice = value.children[3].innerHTML;
-        buyInfo.innerText = breadName + " " +  breadPrice;
-        
-        // + / - button for calculating Item Amount.
-        let plus = document.createElement("input");
-        let minus = document.createElement("input");
-        let quantity = document.createElement("div");
-        let addCart = document.createElement("input");
-        let userQuantity = 1;
-        plus.type="button"; plus.value="  +  "; plus.onclick="count('plus')";
-        minus.type="button"; minus.value="  -  "; minus.onclick="count('minus')";
-        quantity.id='result'; quantity=0;
-        
-        addCart.type="button"; addCart.value = "AddCart";
-        // Button for Plus
-        plus.addEventListener('click', function(){
-            let breadName = value.children[1].innerHTML;
-            let breadPrice = (value.children[2].innerHTML).slice(1);
-
-            userQuantity += 1;
-            breadPrice = breadPrice * userQuantity;
-            totalPrice = breadPrice;
-
-            buyInfo.innerText = breadName + " $ " +  totalPrice;
-            divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
-        })
-        // Button for Minus
-        minus.addEventListener('click', function(){
-            if (userQuantity <1){
-                userQuantity = 0;
-
-            }else{
-                userQuantity -= 1;
+    class bakeryinfo { 
+        constructor(id, ProductName, price){
+            this.id = id;
+            this.ProductName = ProductName;
+            this.price = price;
             }
-            let breadName = value.children[1].innerHTML;
-            let breadPrice = (value.children[2].innerHTML).slice(1);
-            breadPrice = breadPrice;
-            totalPrice = breadPrice;
-            buyInfo.innerText = breadName + " $ " +  totalPrice;
+        }
+    
+    class shoppinginfo { 
+        constructor(BreadName, Price, Amount){
+            this.BreadName = BreadName;
+            this.Price = Price;
+            this.Amount = Amount;
+            }
+        }
+
+    let bakeryApp = angular.module("bakeryApp", ["ngRoute"]);
+
+        
+    bakeryApp.config(($routeProvider)=>{
+        $routeProvider
+        // .when("/home",{
+        //     templateUrl:"./page/home.html"
+        // })
+        .when("/",{
+            templateUrl:"./menu.html"
+        })
+        // .when("/login",{
+        //     templateUrl:"./login.html"
+        // })
+        // .when("/cart",{
+        //     templateUrl:"./cart.html"
+        // })
+        // .when("/order",{
+        //     templateUrl:"./order.html"
+        // })
+    })
+
+    bakeryApp.run(($rootScope, $http)=>{
+        $rootScope.bakeryfile = [];
+        $rootScope.bakeryobj = [];
+        $rootScope.getobj = [];
+        $rootScope.cartBread = [];
+        $rootScope.cartPrice = [];
+        $rootScope.cartAmount = [];
+        $rootScope.shopping = [];
+        $rootScope.shoppingN = 0;
+
+
+        $rootScope.showmodal = false;
+
+        let id = 1;
+        $http.get('./data.json').then(
+            (res)=>{
+                $rootScope.bakeryfile = res.data;
+                for (let obj of $rootScope.bakeryfile) { // go through the JSON data array and store info to class, then put into JSONObj array
+                    newbread = new bakeryinfo(id, obj.ProductName, obj.price);
+                    $rootScope.bakeryobj.push(newbread);
+                    id++;
+                }
+            }
+        )
+    })
+ 
+    bakeryApp.controller('menuCtrl', ($scope, $rootScope)=>{
+        
+
+        // let info = $location.search();
+        // console.log(info);
+        // console.log($scope.bakery);
+        // console.log(res.data);
+
+
+        // $scope.Bakery = new Map();
+        // let wannabuyid = parseInt(this.event.target.dataset.id);
+        // console.log(wannabuyid);
+        // $scope.wannabuy = $rootScope.JSONObj.filter(obj => obj.id == wannabuyid);
+        // console.log($scope.wannabuy);
+
+        $scope.btnClick = (event) =>{
+            // if($scope.showmodal == false){
+            //     $scope.showmodal = true;
+            //     console.log($scope.showmodal);
+            // }else{
+            //     $scope.showmodal = false;
+            //     console.log($scope.showmodal);
+            // }
+            $rootScope.getobj = [];
+            $scope.userQuantity = 1;
+            $scope.showmodal = true;
+            let getid = this.event.target.className;
+            $scope.getobj = $rootScope.bakeryobj.filter(breadobj => breadobj.id == getid)[0];
+            console.log($scope.getobj);
+            $rootScope.getobj = $scope.getobj;
+
+            $scope.closeBtn = ()=>{ // close the menu modal box function
+                $scope.showmodal = false;
+            }
+
+            $scope.countminus = ()=>{
+                if ($scope.userQuantity <1){
+                    $scope.userQuantity = 0;
+                }else{
+                    $scope.userQuantity -= 1;
+                }
+            }
+
+            $scope.countplus = ()=>{
+                $scope.userQuantity += 1;
+            }
+
+            $scope.addCart = ()=>{
+                
+                if($scope.userQuantity == 0){
+                    alert("Please select more than 1");
+
+                }else{
+                    newshopping = new shoppinginfo($scope.getobj.ProductName, $scope.getobj.price, $scope.userQuantity);
+                    // $scope.shopping.push(newshopping);
+                    console.log(newshopping);
+                    // id++;
+
+                    // $rootscope.cartBread.push($scope.getobj.ProductName);
+                    // $rootscope.cartPrice.push($scope.getobj.price*$scope.userQuantity);
+                    // $rootscope.cartAmount.push($scope.userQuantity);
+                    console.log($scope.cartBread);
+
+                    $scope.cartBread.push(newshopping.BreadName);
+                    $scope.cartPrice.push(newshopping.Price);
+                    $scope.cartAmount.push(newshopping.Amount);
+                    console.log($scope.cartBread);
+
+                    
+                    sessionStorage.setItem("Bread", JSON.stringify($scope.cartBread));
+                    sessionStorage.setItem("Price", JSON.stringify($scope.cartPrice));
+                    sessionStorage.setItem("Amount", JSON.stringify($scope.cartAmount));
+                    alert('Add【 '+$scope.getobj.ProductName+' 】to cart successfully!');
+                    $scope.showmodal = false;
+
+                }
+            }
             
-            divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
-        })
+        }
+        
+       
+    })
 
-        // User want store in the cart.
-        addCart.addEventListener('click', function () {
-            if(userQuantity == 0){
-                alert("Please select more than 1");
-            }else{
-                breadPrice = parseFloat(breadPrice.slice(1)); 
-                cartBread.push(breadName);
-                cartPrice.push(breadPrice);
-                cartAmount.push(userQuantity);
 
-                sessionStorage.setItem("Bread", JSON.stringify(cartBread));
-                sessionStorage.setItem("Price", JSON.stringify(cartPrice));
-                sessionStorage.setItem("Amount", JSON.stringify(cartAmount));
 
-                divModal.style.display = "none";
-            }
-        })
+        //Shopping cart Jake: ----------------------------------------------------------
 
-        let spanContent = document.createElement("span");
-        spanContent.classList.add("close");
-        spanContent.innerText = "x";
+        //     let plusone = new bakeryinfo($scope.curObj[0].name, $scope.inpSize, $scope.inpQty, $scope.curObj[0].price, $scope.curObj[0].img);
+        //   $rootScope.cartObj.push(cartItem);
 
-        divModal.append(divContent);
-        divContent.append(spanContent, buyInfo, minus,userQuantity, plus, addCart);
+        //     console.log($scope.bakery);
+        //     let Bakery_one = new bakeryinfo(id,$scope.productName, $scope.productprice);
 
-        divModal.style.display = "block";
+        //     $scope.Bakery.set(Bakery_one);
 
-        spanContent.addEventListener('click', function(){
-            divModal.style.display = "none";
-        })
+        //     console.log($scope.Bakery);
+        //     $scope.ProductName = "";
+        //     $scope.price = "";
 
-        breadPic.append(divModal);
 
-    }
+    // $scope.cartBtn=(){
+    //     $scope.breadList.set($scope.ProductName, $scope.price);
+    //         console.log($scope.breadList);
+    //         $scope.updateArray();
+    //         $scope.studentName = "";
+    //         $scope.grade = "";    
+    //     }
+    // let breadList = document.getElementsByName("bread");
+    // let breadPic = document.getElementsByName("bread")[0];
+    // let totalPrice = 0;
+    // For session Storage.
+    // var cartBread = [];
+    // var cartPrice = [];
+    // var cartAmount = [];
+
+    // for (let obj of breadList) {
+    //     console.log(obj);
+    //     let cartBtn = document.createElement("button");
+    //     cartBtn.type="button"; cartBtn.innerText="Add To Cart"; cartBtn.id = "myBtn";
+    //     obj.append(cartBtn);
+    //     //Show The information of Item 
+    //     cartBtn.addEventListener('click',(value)=>{
+    //         let breadName = obj.children[1].innerHTML;
+    //         let breadPrice = obj.children[2].innerHTML;
+    //         totalPrice = parseFloat(breadPrice.slice(1));
+    //         breadPrice = parseFloat(breadPrice.slice(1));
+
+    //         modalPopulate(obj);
+    //     })
+    //     console.log(cartBtn);
+
+    // let modalPopulate = (value) =>{
+
+    //     let divModal = document.createElement("div");
+    //     divModal.id = "myModal";
+    //     divModal.classList.add("modal");
+
+    //     let divContent = document.createElement("div");
+    //     divContent.classList.add("modal-content");
+    //     let buyInfo = document.createElement("p");
+
+    //     let breadName = value.children[1].innerHTML;
+    //     let breadPrice = value.children[2].innerHTML;
+    //     let overallPrice = value.children[3].innerHTML;
+    //     buyInfo.innerText = breadName + " " +  breadPrice;
+        
+    //     // + / - button for calculating Item Amount.
+    //     let plus = document.createElement("input");
+    //     let minus = document.createElement("input");
+    //     let quantity = document.createElement("div");
+    //     let addCart = document.createElement("input");
+    //     let userQuantity = 1;
+    //     plus.type="button"; plus.value="  +  "; plus.onclick="count('plus')";
+    //     minus.type="button"; minus.value="  -  "; minus.onclick="count('minus')";
+    //     quantity.id='result'; quantity=0;
+        
+    //     addCart.type="button"; addCart.value = "AddCart";
+    //     // Button for Plus
+    //     plus.addEventListener('click', function(){
+    //         let breadName = value.children[1].innerHTML;
+    //         let breadPrice = (value.children[2].innerHTML).slice(1);
+
+    //         userQuantity += 1;
+    //         breadPrice = breadPrice * userQuantity;
+    //         totalPrice = breadPrice;
+
+    //         buyInfo.innerText = breadName + " $ " +  totalPrice;
+    //         divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
+    //     })
+    //     // Button for Minus
+    //     minus.addEventListener('click', function(){
+    //         if (userQuantity <1){
+    //             userQuantity = 0;
+
+    //         }else{
+    //             userQuantity -= 1;
+    //         }
+    //         let breadName = value.children[1].innerHTML;
+    //         let breadPrice = (value.children[2].innerHTML).slice(1);
+    //         breadPrice = breadPrice;
+    //         totalPrice = breadPrice;
+    //         buyInfo.innerText = breadName + " $ " +  totalPrice;
+            
+    //         divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
+    //     })
+
+    //     // User want store in the cart.
+    //     addCart.addEventListener('click', function () {
+    //         if(userQuantity == 0){
+    //             alert("Please select more than 1");
+    //         }else{
+    //             breadPrice = parseFloat(breadPrice.slice(1)); 
+    //             cartBread.push(breadName);
+    //             cartPrice.push(breadPrice);
+    //             cartAmount.push(userQuantity);
+
+    //             sessionStorage.setItem("Bread", JSON.stringify(cartBread));
+    //             sessionStorage.setItem("Price", JSON.stringify(cartPrice));
+    //             sessionStorage.setItem("Amount", JSON.stringify(cartAmount));
+
+    //             divModal.style.display = "none";
+    //         }
+    //     })
+
+    //     let spanContent = document.createElement("span");
+    //     spanContent.classList.add("close");
+    //     spanContent.innerText = "x";
+
+    //     divModal.append(divContent);
+    //     divContent.append(spanContent, buyInfo, minus,userQuantity, plus, addCart);
+
+    //     divModal.style.display = "block";
+
+    //     spanContent.addEventListener('click', function(){
+    //         divModal.style.display = "none";
+    //     })
+
+    //     breadPic.append(divModal);
+
+    // }
+    // }
+    
+
+    //Menu Linwen End: ----------------------------------------------------------
+
+
+    
     
     
 </script>

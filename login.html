@@ -1,72 +1,80 @@
-
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title></title>
-<link href="css/origin.css" rel="stylesheet" type="text/css" media="all">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<script src="js/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linwen's LuckyFour Bakery Website">
 
-</script>
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script src="./angular.js"></script>
+    <script src="./ng-route.js"></script>
+    
+
+    <title>LuckyFour Bakery</title>
+
+
+
 </head>
 <body>
-<!-- header -->
- <div class="banner1">
-		<div class="header">
-		<div class="container">
-			<div class="logo">
-				<a href="index.html"></a>
-			</div>
-				<div class="hader-left">
-				<h1><a href="index.html">Bakery</a></h1>
-				
-				</div>
-				<div class="head-nav">
-					<span class="menu"> </span>
-					<ul class="cl-effect-3">
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="login.html">Login</a></li>
-						<li><a href="cart.html">Cart</a></li>
-						<div class="clearfix"> </div>
-					</ul>
-				</div>
-			<div class="clearfix"> </div>
-						<!-- script-for-nav -->
-					<script>
-						$( "span.menu" ).click(function() {
-						  $( ".head-nav ul" ).slideToggle(300, function() {
-							// Animation complete.
-						  });
-						});
-					</script>
-				<!-- script-for-nav --> 	
-				</div>				
-			</div> 
-			</div>
-<!-- header -->
-<!--about start here-->
-<div class="about">
-	<div class="container">
-		
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>
-<!--about end here-->
-	<!-- footer -->
+    <div id="login">
+    <header> 
+        <nav>
+        <!-- <a href="#/!home">Home</a> -->
+            <a href="./index.html">Home</a>
+            <a href="./login.html">Log in</a>
 
-	<!-- footer -->
-<!-- footer -->
-	<div class="footer" id="contact">
-		<div class="container">
-			
-	</div>
-<!-- footer -->
+            <a href="./cart.html">Shopping Cart</a>
+            <a href="./order.html">order</a>
+        </nav>
+    </header> 
+<h1>Log in page</h1>
+<input type="text" placeholder="name"><br>
+<input type="password" placeholder="password"><br>
+<input type="checkbox">Remember me<br>
+<button type="button">Login</button>
+</div>
 </body>
+<script>
+
+let setCookie = (CookieName, CookieValue, Exp)=>{
+        const currentTime = new Date();
+        currentTime.setTime(currentTime.getTime()+(Exp*24*60*60*1000));
+        let Cookie_Exp = "expires="+currentTime.toUTCString();
+        document.cookie = " " + CookieName + "="+ CookieValue  + ";"+Cookie_Exp;
+    };
+    let getCookie = (CookieName) =>{
+        let cookieKey = CookieName+"=";
+        let cookies = decodeURIComponent(document.cookie);
+        let cookieArray = cookies.split(";");
+        for(let cookie of cookieArray){
+            while(cookie.charAt(0) == " "){
+                cookie = cookie.substring(1);
+            }
+            if(cookie.indexOf(cookieKey)==0){
+                return cookie.substring(cookieKey.length);
+            } 
+        }
+        return "";
+    }
+    // setCookie("color", "red$&");
+
+    let usernameChecker = () =>{
+        let username = getCookie("username");
+        if(username!=""){
+            usernameInput.value = username;
+        }
+    }
+    let usernameInput = document.getElementsByTagName("input")[0];
+    let checkbox = document.getElementsByTagName("input")[2];
+    let btnLogin = document.getElementsByTagName("button")[0];
+    usernameChecker();
+    btnLogin.addEventListener("click",()=>{
+        if(checkbox.checked){
+            setCookie("username",usernameInput.value,4);
+        }
+    })
+</script>
 </html>
