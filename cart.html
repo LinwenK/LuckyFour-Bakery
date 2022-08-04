@@ -20,35 +20,57 @@
 </head>
 
 <body>
-	<div id="cart">
-	<header>
-            <nav>
-            <!-- <a href="#/!home">Home</a> -->
-                <a href="./index.html">Home</a>
-				<a href="./login.html">Log in</a>
+	<header class="pageheader">
+        <div class="level-video" onclick="showmenu();" id="gohome" class="gomenu">
+            <video autoplay loop muted class="v-header">
+              <source src="./img/Logo.mp4" type="video/mp4">
+            </video>
+            <a href="./index.html" >
+                Home
+            </a>  
+        </div>
 
-                <a href="./cart.html">Shopping Cart</a>
-                <a href="./order.html">order</a>
-            </nav>
-        </header> 
+            <div id = "loginpage">
+            <img id = "loginpageicon" src="./img/user.png" width="100%" height="100%">
+            <a href="./login.html" >
+                Log in
+            </a>    
+            </div>
+
+            <div id = "cartpage">
+            <video id = "cartpageicon" autoplay loop muted class="v-header">
+                <source src="./img/addcart.mp4" type="video/mp4">
+            </video>
+            <a href="./cart.html">
+                Shopping Cart
+            </a>
+            </div>
+
+    </header> 
+	<div id="cart"> 
+		<h1>Shopping Cart</h1>
+
 <!---->
-		<div class="container">
-			<div class="specials">
-				<table> 
+		<div class="container" id="shoppingpage">
+			<div class="shoppingpage2">
+				<table id="carttable"> 
 					<thead>
 						<tr>
 							<th>BreadName</th>
 							<th>Amount</th>
-							<th>Price per one bread</th>
+							<th>Price</th>
 						</tr>
 					</thead>
 					<tbody>
 
 					</tbody>
 				</table>
-					<div class="clearfix"> </div>
-				</div>
 			</div>
+				<div class="clearfix"> </div>
+				<div class="specials">
+				</div>
+
+					
 		</div>
 	</div>
 	<!---->
@@ -56,7 +78,8 @@
 </body>
 <script>
 	let cartDiv = document.getElementsByClassName("specials")[0];
-	let cartContainer = document.getElementsByClassName("container")[0];
+	
+	let cartContainer = document.getElementsByClassName("pageheader")[0];
 	let newAmount =[];
 	
 	
@@ -75,12 +98,12 @@
 
 		let backBtn = document.createElement("input");
 		backBtn.type="button"; backBtn.value="Back to Main";
+		backBtn.id ="buttonmain";
 
 		backBtn.addEventListener('click', function(event){
 			location.href='./index.html';
 		})
 
-		cartDiv.append(backBtn);
 
 		//If there is no Item in the cart.
 		if(Price === null){
@@ -111,7 +134,11 @@
 			// 	})
 			// });
 			
-			orderBtn.type="button"; orderBtn.value="Order";
+			orderBtn.type="button"; 
+			orderBtn.value="Place your lucky order";
+			orderBtn.id="buttonorder"; 
+			clearBtn.id="buttonclear"
+
 			orderBtn.addEventListener('click', (event)=>{
 				let isExecuted = confirm("Are you sure to order these breads??");
 				if(isExecuted == true){
@@ -167,8 +194,15 @@
 				tbody.append(tr);
 		
 			}
-			table.append("Total Price : $ " + tPrice);
-			cartDiv.append(clearBtn, orderBtn);
+			
+			let totalprice = document.createElement("div");
+			totalprice.id="tPrice";
+			totalprice.innerHTML = "Total Price : $ " + tPrice;
+
+			cartDiv.append(totalprice);
+
+			cartDiv.append(orderBtn);
+			cartDiv.append(clearBtn,backBtn);
 		}
 
 	}
