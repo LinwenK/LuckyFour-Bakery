@@ -126,7 +126,6 @@
         $rootScope.cartPrice = [];
         $rootScope.cartAmount = [];
         $rootScope.shopping = [];
-        $rootScope.shoppingN = 0;
 
 
         $rootScope.showmodal = false;
@@ -147,26 +146,9 @@
     bakeryApp.controller('menuCtrl', ($scope, $rootScope)=>{
         
 
-        // let info = $location.search();
-        // console.log(info);
-        // console.log($scope.bakery);
-        // console.log(res.data);
-
-
-        // $scope.Bakery = new Map();
-        // let wannabuyid = parseInt(this.event.target.dataset.id);
-        // console.log(wannabuyid);
-        // $scope.wannabuy = $rootScope.JSONObj.filter(obj => obj.id == wannabuyid);
-        // console.log($scope.wannabuy);
 
         $scope.btnClick = (event) =>{
-            // if($scope.showmodal == false){
-            //     $scope.showmodal = true;
-            //     console.log($scope.showmodal);
-            // }else{
-            //     $scope.showmodal = false;
-            //     console.log($scope.showmodal);
-            // }
+
             $rootScope.getobj = [];
             $scope.userQuantity = 1;
             $scope.showmodal = true;
@@ -175,7 +157,7 @@
             console.log($scope.getobj);
             $rootScope.getobj = $scope.getobj;
 
-            $scope.closeBtn = ()=>{ // close the menu modal box function
+            $scope.closeBtn = ()=>{ 
                 $scope.showmodal = false;
             }
 
@@ -229,142 +211,122 @@
 
 
 
-        //Shopping cart Jake: ----------------------------------------------------------
+        // Shopping cart Jake: ----------------------------------------------------------
 
-        //     let plusone = new bakeryinfo($scope.curObj[0].name, $scope.inpSize, $scope.inpQty, $scope.curObj[0].price, $scope.curObj[0].img);
-        //   $rootScope.cartObj.push(cartItem);
-
-        //     console.log($scope.bakery);
-        //     let Bakery_one = new bakeryinfo(id,$scope.productName, $scope.productprice);
-
-        //     $scope.Bakery.set(Bakery_one);
-
-        //     console.log($scope.Bakery);
-        //     $scope.ProductName = "";
-        //     $scope.price = "";
-
-
-    // $scope.cartBtn=(){
-    //     $scope.breadList.set($scope.ProductName, $scope.price);
-    //         console.log($scope.breadList);
-    //         $scope.updateArray();
-    //         $scope.studentName = "";
-    //         $scope.grade = "";    
-    //     }
-    // let breadList = document.getElementsByName("bread");
-    // let breadPic = document.getElementsByName("bread")[0];
-    // let totalPrice = 0;
+    let breadList = document.getElementsByName("bread");
+    let breadPic = document.getElementsByName("bread")[0];
+    let totalPrice = 0;
     // For session Storage.
-    // var cartBread = [];
-    // var cartPrice = [];
-    // var cartAmount = [];
+    var cartBread = [];
+    var cartPrice = [];
+    var cartAmount = [];
 
-    // for (let obj of breadList) {
-    //     console.log(obj);
-    //     let cartBtn = document.createElement("button");
-    //     cartBtn.type="button"; cartBtn.innerText="Add To Cart"; cartBtn.id = "myBtn";
-    //     obj.append(cartBtn);
-    //     //Show The information of Item 
-    //     cartBtn.addEventListener('click',(value)=>{
-    //         let breadName = obj.children[1].innerHTML;
-    //         let breadPrice = obj.children[2].innerHTML;
-    //         totalPrice = parseFloat(breadPrice.slice(1));
-    //         breadPrice = parseFloat(breadPrice.slice(1));
+    for (let obj of breadList) {
+        console.log(obj);
+        let cartBtn = document.createElement("button");
+        cartBtn.type="button"; cartBtn.innerText="Add To Cart"; cartBtn.id = "myBtn";
+        obj.append(cartBtn);
+        //Show The information of Item 
+        cartBtn.addEventListener('click',(value)=>{
+            let breadName = obj.children[1].innerHTML;
+            let breadPrice = obj.children[2].innerHTML;
+            totalPrice = parseFloat(breadPrice.slice(1));
+            breadPrice = parseFloat(breadPrice.slice(1));
 
-    //         modalPopulate(obj);
-    //     })
-    //     console.log(cartBtn);
+            modalPopulate(obj);
+        })
+        console.log(cartBtn);
 
-    // let modalPopulate = (value) =>{
+    let modalPopulate = (value) =>{
 
-    //     let divModal = document.createElement("div");
-    //     divModal.id = "myModal";
-    //     divModal.classList.add("modal");
+        let divModal = document.createElement("div");
+        divModal.id = "myModal";
+        divModal.classList.add("modal");
 
-    //     let divContent = document.createElement("div");
-    //     divContent.classList.add("modal-content");
-    //     let buyInfo = document.createElement("p");
+        let divContent = document.createElement("div");
+        divContent.classList.add("modal-content");
+        let buyInfo = document.createElement("p");
 
-    //     let breadName = value.children[1].innerHTML;
-    //     let breadPrice = value.children[2].innerHTML;
-    //     let overallPrice = value.children[3].innerHTML;
-    //     buyInfo.innerText = breadName + " " +  breadPrice;
+        let breadName = value.children[1].innerHTML;
+        let breadPrice = value.children[2].innerHTML;
+        let overallPrice = value.children[3].innerHTML;
+        buyInfo.innerText = breadName + " " +  breadPrice;
         
-    //     // + / - button for calculating Item Amount.
-    //     let plus = document.createElement("input");
-    //     let minus = document.createElement("input");
-    //     let quantity = document.createElement("div");
-    //     let addCart = document.createElement("input");
-    //     let userQuantity = 1;
-    //     plus.type="button"; plus.value="  +  "; plus.onclick="count('plus')";
-    //     minus.type="button"; minus.value="  -  "; minus.onclick="count('minus')";
-    //     quantity.id='result'; quantity=0;
+        // + / - button for calculating Item Amount.
+        let plus = document.createElement("input");
+        let minus = document.createElement("input");
+        let quantity = document.createElement("div");
+        let addCart = document.createElement("input");
+        let userQuantity = 1;
+        plus.type="button"; plus.value="  +  "; plus.onclick="count('plus')";
+        minus.type="button"; minus.value="  -  "; minus.onclick="count('minus')";
+        quantity.id='result'; quantity=0;
         
-    //     addCart.type="button"; addCart.value = "AddCart";
-    //     // Button for Plus
-    //     plus.addEventListener('click', function(){
-    //         let breadName = value.children[1].innerHTML;
-    //         let breadPrice = (value.children[2].innerHTML).slice(1);
+        addCart.type="button"; addCart.value = "AddCart";
+        // Button for Plus
+        plus.addEventListener('click', function(){
+            let breadName = value.children[1].innerHTML;
+            let breadPrice = (value.children[2].innerHTML).slice(1);
 
-    //         userQuantity += 1;
-    //         breadPrice = breadPrice * userQuantity;
-    //         totalPrice = breadPrice;
+            userQuantity += 1;
+            breadPrice = breadPrice * userQuantity;
+            totalPrice = breadPrice;
 
-    //         buyInfo.innerText = breadName + " $ " +  totalPrice;
-    //         divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
-    //     })
-    //     // Button for Minus
-    //     minus.addEventListener('click', function(){
-    //         if (userQuantity <1){
-    //             userQuantity = 0;
+            buyInfo.innerText = breadName + " $ " +  totalPrice;
+            divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
+        })
+        // Button for Minus
+        minus.addEventListener('click', function(){
+            if (userQuantity <1){
+                userQuantity = 0;
 
-    //         }else{
-    //             userQuantity -= 1;
-    //         }
-    //         let breadName = value.children[1].innerHTML;
-    //         let breadPrice = (value.children[2].innerHTML).slice(1);
-    //         breadPrice = breadPrice;
-    //         totalPrice = breadPrice;
-    //         buyInfo.innerText = breadName + " $ " +  totalPrice;
+            }else{
+                userQuantity -= 1;
+            }
+            let breadName = value.children[1].innerHTML;
+            let breadPrice = (value.children[2].innerHTML).slice(1);
+            breadPrice = breadPrice;
+            totalPrice = breadPrice;
+            buyInfo.innerText = breadName + " $ " +  totalPrice;
             
-    //         divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
-    //     })
+            divContent.replaceChildren(spanContent, buyInfo, minus, userQuantity, plus, addCart);
+        })
 
-    //     // User want store in the cart.
-    //     addCart.addEventListener('click', function () {
-    //         if(userQuantity == 0){
-    //             alert("Please select more than 1");
-    //         }else{
-    //             breadPrice = parseFloat(breadPrice.slice(1)); 
-    //             cartBread.push(breadName);
-    //             cartPrice.push(breadPrice);
-    //             cartAmount.push(userQuantity);
+        // User want store in the cart.
+        addCart.addEventListener('click', function () {
+            if(userQuantity == 0){
+                alert("Please select more than 1");
+            }else{
+                breadPrice = parseFloat(breadPrice.slice(1)); 
+                cartBread.push(breadName);
+                cartPrice.push(breadPrice);
+                cartAmount.push(userQuantity);
 
-    //             sessionStorage.setItem("Bread", JSON.stringify(cartBread));
-    //             sessionStorage.setItem("Price", JSON.stringify(cartPrice));
-    //             sessionStorage.setItem("Amount", JSON.stringify(cartAmount));
+                sessionStorage.setItem("Bread", JSON.stringify(cartBread));
+                sessionStorage.setItem("Price", JSON.stringify(cartPrice));
+                sessionStorage.setItem("Amount", JSON.stringify(cartAmount));
 
-    //             divModal.style.display = "none";
-    //         }
-    //     })
+                divModal.style.display = "none";
+            }
+        })
 
-    //     let spanContent = document.createElement("span");
-    //     spanContent.classList.add("close");
-    //     spanContent.innerText = "x";
+        let spanContent = document.createElement("span");
+        spanContent.classList.add("close");
+        spanContent.innerText = "x";
 
-    //     divModal.append(divContent);
-    //     divContent.append(spanContent, buyInfo, minus,userQuantity, plus, addCart);
+        divModal.append(divContent);
+        divContent.append(spanContent, buyInfo, minus,userQuantity, plus, addCart);
 
-    //     divModal.style.display = "block";
+        divModal.style.display = "block";
 
-    //     spanContent.addEventListener('click', function(){
-    //         divModal.style.display = "none";
-    //     })
+        spanContent.addEventListener('click', function(){
+            divModal.style.display = "none";
+        })
 
-    //     breadPic.append(divModal);
+        breadPic.append(divModal);
 
-    // }
-    // }
+    }
+    }
     
 
     //Menu Linwen End: ----------------------------------------------------------
